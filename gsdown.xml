@@ -12,7 +12,7 @@
   <Content type="html">
   <![CDATA[
     <div id="editor_div">
-      <textarea class="form-control" rows="20" id="text_textarea"></textarea>
+      <textarea class="form-control" rows="5" id="text_textarea"></textarea>
       <button type="button" class="btn btn-default" id="save_button">Save</button>
     </div>
     <div id="content_div"></div>
