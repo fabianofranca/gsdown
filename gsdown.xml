@@ -26,9 +26,7 @@
       function setContent() {
         var html = prefs.getString("text");
 
-        var element = document.getElementById('content_div');
-
-        element.innerHTML = html;
+        $("#content_div").append(html);
       }
 
       gadgets.util.registerOnLoadHandler(init);
