@@ -24,12 +24,7 @@
       }
 
       function setContent() {
-        var html = prefs.getString("text");
-
-        var x = "teste";
-
-        console.log(x);
-        console.log(html);
+        var html = $('<div/>').html(prefs.getString("text")).text();
 
         $("#content_div").append(html);
       }
