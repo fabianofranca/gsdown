@@ -83,7 +83,9 @@
         box-sizing: border-box;
       }
     </style>
-    <div v-html="input | marked"></div>
+    <div id="viewer">
+      <div v-html="input | marked"></div>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.12/vue.min.js"></script>
@@ -95,6 +97,7 @@
         var text = $('<div/>').html(prefs.getString("text")).text();
 
         var vm = new Vue({
+          el: '#viewer',
           data: {
             input: text
           }
