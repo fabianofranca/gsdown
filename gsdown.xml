@@ -10,7 +10,7 @@
     <Require feature="setprefs"/>
   </ModulePrefs>
   <UserPref name="text" display_name="Markdown Text"/>
-  <Content type="html" view="configuration" preferred_height="100">
+  <Content type="html" view="configuration" preferred_height="200">
   <![CDATA[
     <style type="text/css">
       html, body, #editor {
