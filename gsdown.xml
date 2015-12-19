@@ -17,8 +17,8 @@
       var prefs = new gadgets.Prefs();
 
       function init() {
-        gadgets.window.adjustHeight();
         setContent();
+        gadgets.window.adjustHeight();
       }
 
       function setContent() {
