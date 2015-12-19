@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs
+    title="GSDown - Markdown for Google Site"
+    title_url="https://github.com/fabianofranca/gsdown/>"
+    author="Fabiano França"
+    author_email="email@fabianofranca.com"
+    height="100">
+    <Require feature="dynamic-height"/>
+  </ModulePrefs>
+  <Content type="html">
+  <![CDATA[
+    <div>
+      GSDown - Markdown for Google Site
+    </div>
+  ]]>
+  </Content>
+</Module>
