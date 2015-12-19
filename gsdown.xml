@@ -28,7 +28,7 @@
       function setContent() {
         var text = $('<div/>').html(prefs.getString("text")).text();
 
-        var converter = new showdown.Converter(),
+        var converter = new showdown.Converter();
         var html = converter.makeHtml(text);
 
         $("#content_div").append(html);
