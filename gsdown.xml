@@ -43,7 +43,7 @@
       var prefs = new gadgets.Prefs();
 
       function initConfiguration() {
-        var text = decodeURIComponent(prefs.getMsg("text"));
+        var text = decodeURIComponent(prefs.getString("text"));
 
         var vm = new Vue({
           el: '#editor',
@@ -94,7 +94,7 @@
       var prefs = new gadgets.Prefs();
 
       function initHome() {
-        var text = decodeURIComponent(prefs.getMsg("text"));
+        var text = decodeURIComponent(prefs.getString("text"));
 
         var vm = new Vue({
           el: '#viewer',
