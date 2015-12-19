@@ -5,7 +5,7 @@
     title_url="https://github.com/fabianofranca/gsdown/>"
     author="Fabiano França"
     author_email="email@fabianofranca.com"
-    height="100">
+    height="0">
     <Require feature="dynamic-height"/>
   </ModulePrefs>
   <Content type="html">
