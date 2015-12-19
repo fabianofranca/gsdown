@@ -4,14 +4,15 @@
     title="GSDown - Markdown for Google Site"
     title_url="https://github.com/fabianofranca/gsdown/>"
     author="Fabiano França"
-    author_email="email@fabianofranca.com">
+    author_email="email@fabianofranca.com"
+    hei>
     <Require feature="dynamic-height"/>
   </ModulePrefs>
   <Content type="html">
   <![CDATA[
     <script type="text/javascript">
       function onLoad() {
-        console.log('OnLoad');
+        gadgets.window.adjustHeight();
       }
 
       gadgets.util.registerOnLoadHandler(onLoad);
