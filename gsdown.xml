@@ -28,15 +28,14 @@
         -moz-box-sizing: border-box;
         box-sizing: border-box;
         border: none;
-        border-right: 1px solid #ccc;
         resize: none;
         outline: none;
-        font-size: 14px;
+        font-size: 12px;
         font-family: 'Monaco', courier, monospace;
       }
     </style>
     <div id="editor">
-      <textarea v-model="input" debounce="300"></textarea>
+      <textarea v-model="input" debounce="100" placeholder="insert markdown text"></textarea>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
