@@ -8,9 +8,13 @@
     height="0">
     <Require feature="dynamic-height"/>
   </ModulePrefs>
-  <UserPref name="text" display_name="Markdown Text"/>
+  <UserPref name="text" datatype="hidden" display_name="Markdown Text"/>
   <Content type="html">
   <![CDATA[
+    <div id="editor_div">
+      <textarea class="form-control" rows="20" id="text_textarea"></textarea>
+      <button type="button" class="btn btn-default" id="save_button">Save</button>
+    </div>
     <div id="content_div"></div>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -21,17 +25,32 @@
       var prefs = new gadgets.Prefs();
 
       function init() {
-        setContent();
-        gadgets.window.adjustHeight();
+        openEditor();
+        refresh();
       }
 
-      function setContent() {
+      function save() {
+        prefs.set("text", $("#text_textarea").val());
+        refresh();
+      }
+
+      function openEditor() {
+        var text = $('<div/>').html(prefs.getString("text")).text();
+        $("#text_textarea").val(text);
+        $("#save_button").click(function() {
+          save();
+        });
+      }
+
+      function refresh() {
         var text = $('<div/>').html(prefs.getString("text")).text();
 
         var converter = new showdown.Converter();
         var html = converter.makeHtml(text);
 
-        $("#content_div").append(html);
+        $("#content_div").replaceWith(html);
+
+        gadgets.window.adjustHeight();
       }
 
       gadgets.util.registerOnLoadHandler(init);
