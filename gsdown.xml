@@ -50,6 +50,7 @@
       <textarea v-model="input" debounce="300"></textarea>
       <div v-html="input | marked"></div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.12/vue.min.js"></script>
     <script type="text/javascript">
