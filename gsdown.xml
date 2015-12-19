@@ -14,7 +14,9 @@
     <div id="content_div"></div>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/showdownjs/showdown/1.3.0/dist/showdown.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
     <script type="text/javascript">
       var prefs = new gadgets.Prefs();
 
@@ -24,7 +26,10 @@
       }
 
       function setContent() {
-        var html = $('<div/>').html(prefs.getString("text")).text();
+        var text = $('<div/>').html(prefs.getString("text")).text();
+
+        var converter = new showdown.Converter(),
+        var html = converter.makeHtml(text);
 
         $("#content_div").append(html);
       }
