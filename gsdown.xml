@@ -8,18 +8,29 @@
     height="0">
     <Require feature="dynamic-height"/>
   </ModulePrefs>
+  <UserPref name="text" display_name="Markdown Text"/>
   <Content type="html">
   <![CDATA[
+    <div id="content_div"></div>
+
     <script type="text/javascript">
-      function onLoad() {
+      var prefs = new gadgets.Prefs();
+
+      function init() {
         gadgets.window.adjustHeight();
+        setContent();
       }
 
-      gadgets.util.registerOnLoadHandler(onLoad);
+      function setContent() {
+        var html = prefs.getString("text");
+
+        var element = document.getElementById('content_div');
+
+        element.innerHTML = html;
+      }
+
+      gadgets.util.registerOnLoadHandler(init);
     </script>
-    <div>
-      GSDown - Markdown for Google Site
-    </div>
   ]]>
   </Content>
 </Module>
