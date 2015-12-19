@@ -10,7 +10,7 @@
   <Content type="html">
   <![CDATA[
     <script type="text/javascript">
-      gadgets.window.adjustHeight();
+      setTimeout(gadgets.window.adjustHeight, 15000);
     </script>
     <div>
       GSDown - Markdown for Google Site
