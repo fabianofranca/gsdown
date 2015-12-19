@@ -9,7 +9,6 @@
     <Require feature="dynamic-height"/>
     <Require feature="setprefs"/>
   </ModulePrefs>
-  <UserPref name="text" datatype="hidden" display_name="Markdown Text"/>
   <Content type="html">
   <![CDATA[
     <div id="editor_div">
