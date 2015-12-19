@@ -22,9 +22,17 @@
     <script type="text/javascript">
       var prefs = new gadgets.Prefs();
 
+      function initConfiguration() {
+        var text = $('<div/>').html(prefs.getString("text")).text();
+        $("#text_textarea").val(text);
+        gadgets.window.adjustHeight();
+      }
+
       function save() {
         prefs.set("text", $("#text_textarea").val());
       }
+
+      gadgets.util.registerOnLoadHandler(initConfiguration);
 
     </script>
   ]]>
