@@ -9,7 +9,7 @@
     <Require feature="dynamic-height"/>
     <Require feature="setprefs"/>
   </ModulePrefs>
-  <UserPref name="text" display_name="Markdown Text"/>
+  <!--<UserPref name="text" display_name="Markdown Text"/>-->
   <Content type="html" view="configuration" preferred_height="160">
   <![CDATA[
     <style type="text/css">
@@ -43,7 +43,7 @@
       var prefs = new gadgets.Prefs();
 
       function initConfiguration() {
-        var text = $('<div/>').html(prefs.getString("text")).text();
+        var text = decodeURIComponent(prefs.getMsg("text"));
 
         var vm = new Vue({
           el: '#editor',
@@ -53,7 +53,7 @@
         });
 
         vm.$watch('input', function (newVal, oldVal) {
-          prefs.set("text", newVal);
+          prefs.set("text", encodeURIComponent(newVal));
         });
 
         gadgets.window.adjustHeight();
@@ -94,7 +94,7 @@
       var prefs = new gadgets.Prefs();
 
       function initHome() {
-        var text = $('<div/>').html(prefs.getString("text")).text();
+        var text = decodeURIComponent(prefs.getMsg("text"));
 
         var vm = new Vue({
           el: '#viewer',
