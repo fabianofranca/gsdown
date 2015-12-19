@@ -10,7 +10,11 @@
   <Content type="html">
   <![CDATA[
     <script type="text/javascript">
-      setTimeout(gadgets.window.adjustHeight, 15000);
+      function onLoad() {
+        console.log('OnLoad');
+      }
+
+      gadgets.util.registerOnLoadHandler(onLoad);
     </script>
     <div>
       GSDown - Markdown for Google Site
