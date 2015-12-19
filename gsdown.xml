@@ -26,6 +26,11 @@
       function setContent() {
         var html = prefs.getString("text");
 
+        var x = "teste";
+
+        console.log(x);
+        console.log(html);
+
         $("#content_div").append(html);
       }
 
