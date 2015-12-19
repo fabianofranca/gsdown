@@ -55,7 +55,7 @@
         });
 
         vm.$watch('input', function (newVal, oldVal) {
-          prefs.set("text", value);
+          prefs.set("text", newVal);
         });
 
         gadgets.window.adjustHeight();
