@@ -9,12 +9,28 @@
     <Require feature="dynamic-height"/>
     <Require feature="setprefs"/>
   </ModulePrefs>
-  <Content type="html">
+  <UserPref name="text" display_name="Markdown Text"/>
+  <Content type="html" view="configuration">
   <![CDATA[
     <div id="editor_div">
-      <textarea class="form-control" rows="5" id="text_textarea"></textarea>
-      <button type="button" class="btn btn-default" id="save_button">Save</button>
+      <textarea class="form-control" rows="5" id="text_textarea" onchange="save()"></textarea>
     </div>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/showdownjs/showdown/1.3.0/dist/showdown.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var prefs = new gadgets.Prefs();
+
+      function save() {
+        prefs.set("text", $("#text_textarea").val());
+      }
+
+    </script>
+  ]]>
+  </Content>
+  <Content type="html" view="home">
+  <![CDATA[
     <div id="content_div"></div>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -24,22 +40,8 @@
     <script type="text/javascript">
       var prefs = new gadgets.Prefs();
 
-      function init() {
-        openEditor();
+      function initHome() {
         refresh();
-      }
-
-      function save() {
-        prefs.set("text", $("#text_textarea").val());
-        refresh();
-      }
-
-      function openEditor() {
-        var text = $('<div/>').html(prefs.getString("text")).text();
-        $("#text_textarea").val(text);
-        $("#save_button").click(function() {
-          save();
-        });
       }
 
       function refresh() {
@@ -53,7 +55,7 @@
         gadgets.window.adjustHeight();
       }
 
-      gadgets.util.registerOnLoadHandler(init);
+      gadgets.util.registerOnLoadHandler(initHome);
     </script>
   ]]>
   </Content>
