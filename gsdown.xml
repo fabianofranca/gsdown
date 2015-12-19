@@ -47,7 +47,7 @@
       function initConfiguration() {
         var text = $('<div/>').html(prefs.getString("text")).text();
 
-        new Vue({
+        var vm = new Vue({
           el: '#editor',
           data: {
             input: text
