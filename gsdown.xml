@@ -99,14 +99,14 @@
       var editor = new EpicEditor(opts);
 
       editor.on('preview', function () {
-        debugger;
+        console.log(editor);
         gadgets.window.adjustHeight();
       });
 
       editor.load();
       editor.element.style.height = 'auto';
       editor.iframe.body.style.height = 'auto';
-      
+
       editor.preview();
     }
 
