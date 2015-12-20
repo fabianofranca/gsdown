@@ -68,7 +68,9 @@
   </Content>
   <Content type="html" view="home">
   <![CDATA[
-  <div id="epiceditor-preview"></div>
+  <div id="epiceditor-preview">
+    <div id="content"></div>
+  </div>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/epiceditor/0.2.2/themes/preview/github.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
@@ -77,8 +79,7 @@
 
     function initPreview() {
       var text = decodeURIComponent(prefs.getString("text"));
-      console.log(marked(text));
-      $('#epiceditor-preview').replaceWith(marked(text));
+      $('#content').replaceWith(marked(text));
     }
 
     gadgets.util.registerOnLoadHandler(initPreview);
