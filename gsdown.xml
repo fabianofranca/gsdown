@@ -37,7 +37,7 @@
           button: {
             preview: true,
             fullscreen: false,
-            bar: "true"
+            bar: true
           },
           focusOnLoad: true,
           shortcut: {
@@ -47,8 +47,7 @@
           },
           string: {
             togglePreview: 'Toggle Preview Mode',
-            toggleEdit: 'Toggle Edit Mode',
-            toggleFullscreen: 'Enter Fullscreen'
+            toggleEdit: 'Toggle Edit Mode'
           },
           autogrow: false
         }
