@@ -68,8 +68,8 @@
   </Content>
   <Content type="html" view="home">
   <![CDATA[
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/epiceditor/0.2.2/themes/preview/github.css">
   <div id="epiceditor-preview"></div>
+  <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/epiceditor/0.2.2/themes/preview/github.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
   <script type="text/javascript">
@@ -83,7 +83,7 @@
 
     gadgets.util.registerOnLoadHandler(initPreview);
 
-  </script>
+  </script>-->
   ]]>
   </Content>
 </Module>
