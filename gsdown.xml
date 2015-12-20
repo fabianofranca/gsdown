@@ -68,49 +68,19 @@
   </Content>
   <Content type="html" view="home">
   <![CDATA[
-  <div id="preview"></div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/epiceditor/0.2.2/js/epiceditor.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/epiceditor/0.2.2/themes/preview/github.css">
+  <div id="epiceditor-preview"></div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://raw.githubusercontent.com/chjj/marked/master/marked.min.js"></script>
   <script type="text/javascript">
     var prefs = new gadgets.Prefs();
 
     function initPreview() {
       var text = decodeURIComponent(prefs.getString("text"));
 
-      var opts = {
-        container: 'preview',
-        basePath: 'https://cdnjs.cloudflare.com/ajax/libs/epiceditor/0.2.2/',
-        clientSideStorage: false,
-        parser: marked,
-        file: {
-            defaultContent: text
-        },
-        theme: {
-          preview: '/themes/preview/github.css'
-        },
-        button: {
-          preview: false,
-          fullscreen: false,
-          bar: "true"
-        },
-        autogrow: true
-      };
 
-      var editor = new EpicEditor(opts);
-
-      editor.load();
-      editor.preview();
-
-      editor.element.style.height = 'auto';
-      editor.iframeElement.style.height = 'auto';
-      editor.iframe.body.style.height = 'auto';
-      editor.editorIframe.style.height = 'auto';
-      editor.previewerIframe.style.height = 'auto';
+      $('#preview').replaceAll(marked(text));
     }
-
-    $(document).ready(function() {
-      gadgets.window.adjustHeight($('#preview').height());
-    });
 
     gadgets.util.registerOnLoadHandler(initPreview);
 
