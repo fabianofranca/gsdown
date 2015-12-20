@@ -93,9 +93,7 @@
           fullscreen: false,
           bar: "true"
         },
-        autogrow: {
-          scroll: false
-        }
+        autogrow: true
       };
 
       var editor = new EpicEditor(opts);
