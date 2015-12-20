@@ -113,6 +113,10 @@
       editor.previewerIframe.style.height = 'auto';
     }
 
+    $(document).ready(function() {
+      debugger;
+    });
+
     gadgets.util.registerOnLoadHandler(initPreview);
 
   </script>
