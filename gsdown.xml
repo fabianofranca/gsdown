@@ -98,20 +98,19 @@
 
       var editor = new EpicEditor(opts);
 
-      editor.on('preview', function () {
-        debugger;
+      editor.element.addEventListener('resize', function () {
         gadgets.window.adjustHeight(editor.element.clientHeight);
       });
 
       debugger;
       editor.load();
+      editor.preview();
+
       editor.element.style.height = 'auto';
       editor.iframeElement.style.height = 'auto';
       editor.iframe.body.style.height = 'auto';
       editor.editorIframe.style.height = 'auto';
       editor.previewerIframe.style.height = 'auto';
-
-      editor.preview();
     }
 
     gadgets.util.registerOnLoadHandler(initPreview);
