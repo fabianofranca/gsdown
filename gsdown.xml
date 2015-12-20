@@ -106,7 +106,6 @@
       debugger;
       editor.load();
       editor.element.style.height = 'auto';
-      editor.iframe.style.height = 'auto';
       editor.iframe.body.style.height = 'auto';
       editor.editorIframe.style.height = 'auto';
       editor.previewerIframe.style.height = 'auto';
