@@ -99,6 +99,7 @@
       var editor = new EpicEditor(opts);
 
       editor.on('preview', function () {
+        debugger;
         gadgets.window.adjustHeight(editor.element.clientHeight);
       });
 
