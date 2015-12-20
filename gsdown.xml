@@ -98,11 +98,6 @@
 
       var editor = new EpicEditor(opts);
 
-      $(editor.element).resize(function () {
-        debugger;
-        gadgets.window.adjustHeight(editor.element.clientHeight);
-      });
-
       editor.load();
       editor.preview();
 
@@ -114,7 +109,7 @@
     }
 
     $(document).ready(function() {
-      debugger;
+      gadgets.window.adjustHeight($('#preview').height());
     });
 
     gadgets.util.registerOnLoadHandler(initPreview);
