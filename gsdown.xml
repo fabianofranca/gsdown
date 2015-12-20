@@ -56,8 +56,7 @@
         var editor = new EpicEditor(opts).load();
 
         editor.on('update', function () {
-          debugger;
-          prefs.set(editor.exportFile());
+          prefs.set('text', editor.exportFile());
         });
 
         gadgets.window.adjustHeight();
@@ -87,7 +86,6 @@
         box-sizing: border-box;
       }
     </style>
-    <link rel="stylesheet" href="https://raw.githubusercontent.com/primer/primer/master/css/primer.css">
     <div id="viewer">
       <div v-html="input | marked"></div>
     </div>
