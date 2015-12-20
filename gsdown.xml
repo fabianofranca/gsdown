@@ -100,7 +100,7 @@
 
       var editor = new EpicEditor(opts).load();
 
-      editor.on('open', function () {
+      editor.on('load', function () {
         gadgets.window.adjustHeight();
       });
 
