@@ -98,13 +98,14 @@
         }
       };
 
+      var editor = new EpicEditor(opts);
+
       editor.on('load', function () {
-        debugger;
         editor.enterFullscreen();
         gadgets.window.adjustHeight();
       });
 
-      var editor = new EpicEditor(opts).load();
+      editor.load();
 
       editor.preview();
     }
