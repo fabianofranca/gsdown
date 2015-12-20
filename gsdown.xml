@@ -56,7 +56,7 @@
         var editor = new EpicEditor(opts).load();
 
         editor.on('update', function () {
-          prefs.set('text', editor.exportFile());
+          prefs.set('text', encodeURIComponent(editor.exportFile()));
         });
 
         gadgets.window.adjustHeight();
