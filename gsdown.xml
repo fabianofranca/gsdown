@@ -91,7 +91,7 @@
           autogrow: false
         }
 
-        var editor = new EpicEditor().load(opts);
+        var editor = new EpicEditor(opts).load();
 
         gadgets.window.adjustHeight();
       }
