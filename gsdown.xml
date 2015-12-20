@@ -38,7 +38,7 @@
       <textarea v-model="input" debounce="300" placeholder="insert markdown text"></textarea>
     </div>-->
     <div id="editor">
-      <textarea id="editor_textarea" onChange="update()"></textarea>
+      <textarea id="editor_textarea"></textarea>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/epiceditor/0.2.2/js/epiceditor.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -87,9 +87,9 @@
         gadgets.window.adjustHeight();
       }
 
-      function update() {
+      $('#editor_textarea').bind('input propertychange', function() {
         prefs.set("text", encodeURIComponent($('#editor_textarea').val()));
-      }
+      }});
 
       gadgets.util.registerOnLoadHandler(initConfiguration);
 
