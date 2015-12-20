@@ -82,15 +82,11 @@
           autogrow: false
         }
 
-        $('#editor_textarea').bind('input propertychange', function() {
-          prefs.set("text", encodeURIComponent($('#editor_textarea').val()));
-        });
-
         var editor = new EpicEditor(opts).load();
 
         editor.on('update', function () {
-          debugger;
           prefs.set(editor.exportFile(editor.settings.file.defaultContent, 'text', true));
+          console.log(editor.exportFile(editor.settings.file.defaultContent, 'text', true));
         });
 
         gadgets.window.adjustHeight();
