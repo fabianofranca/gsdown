@@ -38,7 +38,7 @@
       <textarea v-model="input" debounce="300" placeholder="insert markdown text"></textarea>
     </div>-->
     <div id="editor">
-      <textarea v-model="input" debounce="300" id="editor_textarea"></textarea>
+      <textarea id="editor_textarea" onChange="update()"></textarea>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/epiceditor/0.2.2/js/epiceditor.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -49,16 +49,7 @@
       function initConfiguration() {
         var text = decodeURIComponent(prefs.getString("text"));
 
-        var vm = new Vue({
-          el: '#editor',
-          data: {
-            input: text
-          }
-        });
-
-        vm.$watch('input', function (newVal, oldVal) {
-          prefs.set("text", encodeURIComponent(newVal));
-        });
+        $('#editor_textarea').val(text);
 
         var opts = {
           container: 'editor',
@@ -93,11 +84,11 @@
 
         var editor = new EpicEditor(opts).load();
 
-        editor.on('update', function () {
-          prefs.set("text", encodeURIComponent($('#editor_textarea').val()));
-        });
-
         gadgets.window.adjustHeight();
+      }
+
+      function update() {
+        prefs.set("text", encodeURIComponent($('#editor_textarea').val()));
       }
 
       gadgets.util.registerOnLoadHandler(initConfiguration);
