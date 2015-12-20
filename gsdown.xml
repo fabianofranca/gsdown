@@ -94,7 +94,7 @@
         var editor = new EpicEditor(opts).load();
 
         editor.on('update', function () {
-          prefs.set("text", encodeURIComponent(editor.getElement('editor').body.innerHTML));
+          prefs.set("text", encodeURIComponent($('#editor_textarea').val()));
         });
 
         gadgets.window.adjustHeight();
