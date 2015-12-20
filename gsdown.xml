@@ -103,6 +103,7 @@
         gadgets.window.adjustHeight(editor.element.clientHeight);
       });
 
+      debugger;
       editor.load();
       editor.element.style.height = 'auto';
       editor.iframe.style.height = 'auto';
