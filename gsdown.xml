@@ -104,7 +104,9 @@
       });
 
       editor.load();
-
+      editor.element.style.height = 'auto';
+      editor.iframe.body.style.height = 'auto';
+      
       editor.preview();
     }
 
