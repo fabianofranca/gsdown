@@ -82,14 +82,14 @@
           autogrow: false
         }
 
+        $('#editor_textarea').bind('input propertychange', function() {
+          prefs.set("text", encodeURIComponent($('#editor_textarea').val()));
+        });
+
         var editor = new EpicEditor(opts).load();
 
         gadgets.window.adjustHeight();
       }
-
-      $('#editor_textarea').bind('input propertychange', function() {
-        prefs.set("text", encodeURIComponent($('#editor_textarea').val()));
-      }});
 
       gadgets.util.registerOnLoadHandler(initConfiguration);
 
