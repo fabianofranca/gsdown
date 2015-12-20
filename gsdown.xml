@@ -99,10 +99,10 @@
       var editor = new EpicEditor(opts);
 
       editor.element.addEventListener('resize', function () {
+        debugger;
         gadgets.window.adjustHeight(editor.element.clientHeight);
       });
 
-      debugger;
       editor.load();
       editor.preview();
 
