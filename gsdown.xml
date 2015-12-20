@@ -89,6 +89,7 @@
         var editor = new EpicEditor(opts).load();
 
         editor.on('update', function () {
+          debugger;
           prefs.set(editor.exportFile(editor.settings.file.defaultContent, 'text', true));
         });
 
