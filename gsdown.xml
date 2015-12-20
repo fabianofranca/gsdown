@@ -37,7 +37,7 @@
           button: {
             preview: true,
             fullscreen: false,
-            bar: "auto"
+            bar: "true"
           },
           focusOnLoad: true,
           shortcut: {
@@ -69,51 +69,46 @@
   </Content>
   <Content type="html" view="home">
   <![CDATA[
-    <style type="text/css">
-      html, body, #editor {
-        margin: 0;
-        height: 100%;
-        font-family: 'Helvetica Neue', Arial, sans-serif;
+  <div id="preview"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/epiceditor/0.2.2/js/epiceditor.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script type="text/javascript">
+    var prefs = new gadgets.Prefs();
+
+    function initPreview() {
+      var text = decodeURIComponent(prefs.getString("text"));
+
+      var opts = {
+        container: 'preview',
+        basePath: 'https://cdnjs.cloudflare.com/ajax/libs/epiceditor/0.2.2/',
+        clientSideStorage: false,
+        parser: marked,
+        file: {
+            defaultContent: text,
+        },
+        theme: {
+          preview: '/themes/preview/github.css',
+        },
+        button: {
+          preview: false,
+          fullscreen: false,
+          bar: "true"
+        },
+        autogrow: {
+          scroll = false;
+        }
       }
 
-      div {
-        display: inline-block;
-        width: 100%;
-        height: 100%;
-        vertical-align: top;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-      }
-    </style>
-    <div id="viewer">
-      <div v-html="input | marked"></div>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.12/vue.min.js"></script>
+      var editor = new EpicEditor(opts).load();
 
-    <script type="text/javascript">
-      var prefs = new gadgets.Prefs();
+      editor.preview();
 
-      function initHome() {
-        var text = decodeURIComponent(prefs.getString("text"));
+      gadgets.window.adjustHeight();
+    }
 
-        var vm = new Vue({
-          el: '#viewer',
-          data: {
-            input: text
-          },
-          filters: {
-            marked: marked
-          }
-        });
+    gadgets.util.registerOnLoadHandler(initPreview);
 
-        gadgets.window.adjustHeight();
-      }
-
-      gadgets.util.registerOnLoadHandler(initHome);
-    </script>
+  </script>
   ]]>
   </Content>
 </Module>
