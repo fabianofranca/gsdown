@@ -101,7 +101,6 @@
       var editor = new EpicEditor(opts);
 
       editor.on('load', function () {
-        editor.enterFullscreen();
         gadgets.window.adjustHeight();
       });
 
