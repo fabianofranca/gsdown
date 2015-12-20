@@ -80,6 +80,7 @@
     function initPreview() {
       var text = decodeURIComponent(prefs.getString("text"));
       $('#content').replaceWith(marked(text));
+      gadgets.window.adjustHeight();
     }
 
     gadgets.util.registerOnLoadHandler(initPreview);
