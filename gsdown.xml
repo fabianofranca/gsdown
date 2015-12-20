@@ -37,27 +37,23 @@
     <div id="editor">
       <textarea v-model="input" debounce="300" placeholder="insert markdown text"></textarea>
     </div>-->
-    <div id="editor">
-      <textarea id="editor_textarea"></textarea>
-    </div>
+    <div id="editor"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/epiceditor/0.2.2/js/epiceditor.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.12/vue.min.js"></script>
     <script type="text/javascript">
       var prefs = new gadgets.Prefs();
 
       function initConfiguration() {
         var text = decodeURIComponent(prefs.getString("text"));
 
-        $('#editor_textarea').val(text);
-
         var opts = {
           container: 'editor',
-          textarea: 'editor_textarea',
           basePath: 'https://cdnjs.cloudflare.com/ajax/libs/epiceditor/0.2.2/',
           clientSideStorage: false,
-          useNativeFullscreen: true,
           parser: marked,
+          file: {
+              defaultContent: text,
+          },
           theme: {
             base: '/themes/base/epiceditor.css',
             preview: '/themes/preview/preview-dark.css',
@@ -86,7 +82,6 @@
 
         editor.on('update', function () {
           prefs.set(editor.exportFile(editor.settings.file.defaultContent, 'text', true));
-          console.log(editor.exportFile(editor.settings.file.defaultContent, 'text', true));
         });
 
         gadgets.window.adjustHeight();
