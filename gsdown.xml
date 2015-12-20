@@ -100,9 +100,11 @@
 
       var editor = new EpicEditor(opts).load();
 
-      editor.preview();
+      editor.on('open', function () {
+        gadgets.window.adjustHeight();
+      });
 
-      gadgets.window.adjustHeight();
+      editor.preview();
     }
 
     gadgets.util.registerOnLoadHandler(initPreview);
