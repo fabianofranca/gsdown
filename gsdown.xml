@@ -12,7 +12,7 @@
   <UserPref name="text" display_name="Markdown Text"/>
   <Content type="html" view="configuration" preferred_height="160">
   <![CDATA[
-    <style type="text/css">
+    <!--<style type="text/css">
       html, body, #editor {
         margin: 0;
         height: 100%;
@@ -36,7 +36,11 @@
     </style>
     <div id="editor">
       <textarea v-model="input" debounce="300" placeholder="insert markdown text"></textarea>
+    </div>-->
+    <div id="editor">
+      <textarea v-model="input" debounce="300" id="editor_textarea"></textarea>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/epiceditor/0.2.2/js/epiceditor.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.12/vue.min.js"></script>
     <script type="text/javascript">
@@ -55,6 +59,39 @@
         vm.$watch('input', function (newVal, oldVal) {
           prefs.set("text", encodeURIComponent(newVal));
         });
+
+        var opts = {
+          container: 'editor',
+          textarea: 'editor_textarea',
+          basePath: 'https://cdnjs.cloudflare.com/ajax/libs/epiceditor/0.2.2/',
+          clientSideStorage: false,
+          useNativeFullscreen: true,
+          parser: marked,
+          theme: {
+            base: '/themes/base/epiceditor.css',
+            preview: '/themes/preview/preview-dark.css',
+            editor: '/themes/editor/epic-dark.css'
+          },
+          button: {
+            preview: true,
+            fullscreen: true,
+            bar: "auto"
+          },
+          focusOnLoad: true,
+          shortcut: {
+            modifier: 18,
+            fullscreen: 70,
+            preview: 80
+          },
+          string: {
+            togglePreview: 'Toggle Preview Mode',
+            toggleEdit: 'Toggle Edit Mode',
+            toggleFullscreen: 'Enter Fullscreen'
+          },
+          autogrow: false
+        }
+
+        var editor = new EpicEditor().load(opts);
 
         gadgets.window.adjustHeight();
       }
