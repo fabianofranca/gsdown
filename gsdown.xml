@@ -84,10 +84,10 @@
         clientSideStorage: false,
         parser: marked,
         file: {
-            defaultContent: text,
+            defaultContent: text
         },
         theme: {
-          preview: '/themes/preview/github.css',
+          preview: '/themes/preview/github.css'
         },
         button: {
           preview: false,
@@ -95,9 +95,9 @@
           bar: "true"
         },
         autogrow: {
-          scroll = false;
+          scroll = false
         }
-      }
+      };
 
       var editor = new EpicEditor(opts).load();
 
