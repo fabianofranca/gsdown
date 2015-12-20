@@ -83,7 +83,7 @@
         box-sizing: border-box;
       }
     </style>
-    <link rel="stylesheet" href="https://raw.githubusercontent.com/sindresorhus/github-markdown-css/gh-pages/github-markdown.css">
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/primer/primer/master/css/primer.css">
     <div id="viewer">
       <div v-html="input | marked"></div>
     </div>
