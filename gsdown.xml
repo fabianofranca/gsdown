@@ -98,7 +98,7 @@
 
       var editor = new EpicEditor(opts);
 
-      editor.element.addEventListener('resize', function () {
+      $(editor.element).resize(function () {
         debugger;
         gadgets.window.adjustHeight(editor.element.clientHeight);
       });
