@@ -74,7 +74,7 @@
           },
           button: {
             preview: true,
-            fullscreen: true,
+            fullscreen: false,
             bar: "auto"
           },
           focusOnLoad: true,
@@ -92,6 +92,10 @@
         }
 
         var editor = new EpicEditor(opts).load();
+
+        editor.on('update', function () {
+          prefs.set("text", encodeURIComponent(editor.getElement('editor').body.innerHTML));
+        });
 
         gadgets.window.adjustHeight();
       }
