@@ -78,8 +78,7 @@
     function initPreview() {
       var text = decodeURIComponent(prefs.getString("text"));
 
-
-      $('#preview').replaceAll(marked(text));
+      $('#epiceditor-preview').replaceAll(marked(text));
     }
 
     gadgets.util.registerOnLoadHandler(initPreview);
