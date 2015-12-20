@@ -77,7 +77,7 @@
 
     function initPreview() {
       var text = decodeURIComponent(prefs.getString("text"));
-
+      console.log(text);
       $('#epiceditor-preview').replaceAll(marked(text));
     }
 
